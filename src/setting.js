@@ -1,6 +1,9 @@
 const settingPath = (path, currentlyPath, defaultPath) => {
   if (/~/.test(path))
-    return defaultPath
+    return defaultPath;
+
+  if (/^\/$/.test(path))
+    return path;
 
   if (/\.{2}/.test(path)) {
     currentlyPath = currentlyPath.split('/');
